@@ -10,3 +10,12 @@ def course(req):
 def profile(req):
     print('req',req)
     return HttpResponse('welcome rakib')
+
+
+def users(req):
+    print('req',req)
+    return HttpResponse('welcome users')
+
+def categories(req):
+    print('req',req)
+    return HttpResponse('welcome categories')

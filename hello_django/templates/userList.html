@@ -1,13 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <h2>A Description List</h2>
+{% extends "base.html" %} {% block title%} Users {% endblock title %}
+<div>
+  {%block content%}
+  <h2>A Description List</h2>
 
-    <dl>
-      <dt>Rakib</dt>
-      <dd>- Frontend Developer</dd>
-      <dt>Zakir</dt>
-      <dd>- FullStack Developer</dd>
-    </dl>
-  </body>
-</html>
+  <h3>Total Users: {{ list|length }}</h3>
+  {% if list|length == 2 %}
+  <p>only two</p>
+  {% endif %}
+  <div class="container">
+    {% for user in list %}
+    <div class="card">
+      <img src="{{user.img}}" alt="Avatar" style="width: 100%" />
+      <div class="innerContainer">
+        <h4><b>{{user.name}} {{forloop.counter}}</b></h4>
+        <p>{{user.email}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {%endblock content%}
+</div>

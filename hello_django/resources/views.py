@@ -3,4 +3,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def Blog(req):
-    return render(req,'hello.html')
+    return render(req,'resources.html')

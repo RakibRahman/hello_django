@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 def course(req):
     print('req',req)
-    return HttpResponse('welcome to Django')
+    return render(req,'home.html')
 
 def profile(req):
     print('req',req)

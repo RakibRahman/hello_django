@@ -1,0 +1,23 @@
+{% extends "base.html" %} {%block title%}Courses{%endblock title%}
+
+<div>
+  {%block content%}
+  <h1 class="text-center fs-1 my-4 text-bold">Our Top Courses</h1>
+  <div class="container text-center">
+    <div class="row">
+      {% for course in coursesList%}
+      <div class="col">
+        <div class="card">
+          <img src="{{course.image_url}}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{course.course_name}}</h5>
+            <p class="card-text">Course by - {{course.instructor}}</p>
+            <a href="#" class="btn btn-primary">See Details</a>
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+  {%endblock content%}
+</div>

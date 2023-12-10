@@ -4,6 +4,10 @@ from django.http import HttpResponse
 # Create your views here.
 
 def course(req):
+
+    return render(req,'home.html')
+
+def top_courses(req):
     coursesList =[
     {
         "course_id": 1,
@@ -34,11 +38,7 @@ def course(req):
         "image_url": "https://picsum.photos/200/300?random=21",
     },
 ]
-    return render(req,'home.html',context={'coursesList':coursesList})
-
-def profile(req):
-    print('req',req)
-    return HttpResponse('welcome rakib')
+    return render(req,'top-courses.html',context={'coursesList':coursesList})
 
 
 def users(req):

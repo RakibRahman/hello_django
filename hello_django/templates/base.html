@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% block title%} {%endblock title%}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
   </head>
   <body>
     <div class="container">
@@ -12,8 +13,17 @@
       <div>{% block content %} {% endblock content%}</div>
 
       <footer class="bg-body-tertiary text-center text-lg-start">
-        © 2023 Copyright:
-        <a class="text-body" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        <!-- Copyright -->
+        <div
+          class="text-center p-3"
+          style="background-color: rgba(0, 0, 0, 0.05)"
+        >
+          © 2023 Copyright:
+          <a class="text-body" href="https://mdbootstrap.com/"
+            >magicworld.com</a
+          >
+        </div>
+        <!-- Copyright -->
       </footer>
     </div>
 

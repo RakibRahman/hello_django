@@ -1,6 +1,25 @@
-{% extends "base.html" %} {% block title%} Users {% endblock title %}
+{% extends "base.html" %} 
+{%load static%} 
+{% block title%} Users
+ {% endblock title %}
+ {%block css%}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{%endblock css%}
+
 <div>
   {%block content%}
+  <form>
+    {% comment %} <table>
+       {{form}}
+    </table> {% endcomment %}
+    {%for field in form.visible_fields%}
+    <div>
+      {{field.label_tag}}
+      {{field}}
+    </div>
+    {%endfor%}
+    <button type="submit">Submit</button>
+  </form>
   <h2>A Description List</h2>
 
   <h3>Total Users: {{ list|length }}</h3>

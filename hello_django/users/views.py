@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .forms import UserRegistration
 # Create your views here.
 def UserList(req):
     userListArray = [
@@ -44,5 +44,6 @@ def UserList(req):
     }
   },
     ]
-
-    return render(req,'userList.html',{'list':userListArray})
+    frm = UserRegistration(auto_id='user_%s',initial={'nid':653})
+    frm.order_fields(field_order=['nid'])
+    return render(req,'userList.html',{'list':userListArray,'form':frm})

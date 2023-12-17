@@ -1,0 +1,19 @@
+body {
+  background-color: #ff4e00;
+  background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
+}
+
+.navbar a,
+.navbar button {
+  color: whitesmoke;
+}
+
+.navbar button {
+  border: 1px solid whitesmoke;
+}
+
+footer,
+footer a {
+  margin: 20px 0;
+  color: whitesmoke;
+}

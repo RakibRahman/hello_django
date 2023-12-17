@@ -1,6 +1,41 @@
-{% extends "base.html" %} {% block title%} Users {% endblock title %}
+{% extends "base.html" %} {%load static%} 
+{% block title%} Users {% endblock title %}
+{%block css%}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{%endblock css%}
+
 <div>
-  {%block content%}
+  {%block content%} {% comment %} {{userList}} {% endcomment %} {%if userList%}
+  <h1>Users available {{userList|length}}</h1>
+  <table border="1px" cellspacing="10px">
+    <tr>
+      <th>#ID</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+    <tbody>
+      {%for user in userList%}
+      <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.first_name|upper}} {{user.last_name|upper}}</td>
+        <td>{{user.email}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  {%else%}
+  <h2>No User available</h2>
+  {%endif%}
+  <form>
+    {% comment %}
+    <table>
+      {{form}}
+    </table>
+    {% endcomment %} {%for field in form.visible_fields%}
+    <div>{{field.label_tag}} {{field}}</div>
+    {%endfor%}
+    <button type="submit">Submit</button>
+  </form>
   <h2>A Description List</h2>
 
   <h3>Total Users: {{ list|length }}</h3>
@@ -16,6 +51,7 @@
         <p>{{user.email}}</p>
       </div>
     </div>
+
     {% endfor %}
   </div>
   {%endblock content%}
